@@ -1,23 +1,79 @@
 import { useEffect, useRef, useState } from "react";
-import { Building2, PaintBucket, Award, Users, Wrench } from "lucide-react";
+import heroBg from "@/assets/hero-bg.jpg";
+
+/* ── Inline SVG icons ── */
+const ConstructionIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10">
+    <rect x="8" y="28" width="20" height="28" rx="2" stroke="currentColor" strokeWidth="3" fill="none" />
+    <rect x="36" y="16" width="20" height="40" rx="2" stroke="currentColor" strokeWidth="3" fill="none" />
+    <rect x="12" y="34" width="6" height="6" rx="1" fill="currentColor" opacity="0.4" />
+    <rect x="18" y="34" width="6" height="6" rx="1" fill="currentColor" opacity="0.4" />
+    <rect x="12" y="44" width="6" height="6" rx="1" fill="currentColor" opacity="0.4" />
+    <rect x="40" y="22" width="5" height="5" rx="1" fill="currentColor" opacity="0.4" />
+    <rect x="47" y="22" width="5" height="5" rx="1" fill="currentColor" opacity="0.4" />
+    <rect x="40" y="30" width="5" height="5" rx="1" fill="currentColor" opacity="0.4" />
+    <rect x="47" y="30" width="5" height="5" rx="1" fill="currentColor" opacity="0.4" />
+    <rect x="40" y="38" width="5" height="5" rx="1" fill="currentColor" opacity="0.4" />
+    <line x1="0" y1="56" x2="64" y2="56" stroke="currentColor" strokeWidth="3" />
+  </svg>
+);
+
+const PaintRollerIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10">
+    <rect x="8" y="10" width="36" height="16" rx="3" stroke="currentColor" strokeWidth="3" />
+    <rect x="12" y="14" width="28" height="8" rx="1" fill="currentColor" opacity="0.25" />
+    <line x1="44" y1="18" x2="52" y2="18" stroke="currentColor" strokeWidth="3" />
+    <line x1="52" y1="18" x2="52" y2="32" stroke="currentColor" strokeWidth="3" />
+    <line x1="32" y1="32" x2="52" y2="32" stroke="currentColor" strokeWidth="3" />
+    <line x1="32" y1="32" x2="32" y2="56" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+  </svg>
+);
+
+const TrophyIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+    <path d="M18 8h28v20c0 8-6 14-14 14s-14-6-14-14V8z" stroke="currentColor" strokeWidth="3" />
+    <path d="M18 14H10a4 4 0 0 0-4 4v2a8 8 0 0 0 8 8h4" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M46 14h8a4 4 0 0 1 4 4v2a8 8 0 0 1-8 8h-4" stroke="currentColor" strokeWidth="2.5" />
+    <line x1="32" y1="42" x2="32" y2="50" stroke="currentColor" strokeWidth="3" />
+    <rect x="22" y="50" width="20" height="6" rx="2" stroke="currentColor" strokeWidth="2.5" />
+  </svg>
+);
+
+const TeamIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+    <circle cx="32" cy="16" r="8" stroke="currentColor" strokeWidth="3" />
+    <path d="M16 52c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="currentColor" strokeWidth="3" />
+    <circle cx="12" cy="24" r="6" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M0 48c0-6.6 5.4-12 12-12" stroke="currentColor" strokeWidth="2.5" />
+    <circle cx="52" cy="24" r="6" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M64 48c0-6.6-5.4-12-12-12" stroke="currentColor" strokeWidth="2.5" />
+  </svg>
+);
+
+const WrenchIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+    <path d="M44 8a16 16 0 0 0-15 21.5L10.5 48a5 5 0 0 0 0 7l0 0a5 5 0 0 0 7 0L36 36.5A16 16 0 1 0 44 8z" stroke="currentColor" strokeWidth="3" />
+    <circle cx="14" cy="51.5" r="2" fill="currentColor" />
+  </svg>
+);
 
 const cards = [
   {
-    icon: Building2,
+    Icon: ConstructionIcon,
     title: "Costruzioni e ristrutturazioni",
     text: "Nuove costruzioni, ristrutturazioni complete, ampliamenti e interventi strutturali chiavi in mano.",
   },
   {
-    icon: PaintBucket,
+    Icon: PaintRollerIcon,
     title: "Restauro e finiture",
     text: "Tinteggiature, cappotti termici, cartongesso, restauri conservativi e finiture di pregio.",
   },
 ];
 
 const stats = [
-  { icon: Award, value: "+20", label: "anni di esperienza" },
-  { icon: Users, value: "15+", label: "imprese specializzate" },
-  { icon: Wrench, value: "∞", label: "Team completo per ogni lavorazione" },
+  { Icon: TrophyIcon, value: "+20", label: "anni di esperienza" },
+  { Icon: TeamIcon, value: "15+", label: "imprese specializzate" },
+  { Icon: WrenchIcon, value: "∞", label: "Team completo per ogni lavorazione" },
 ];
 
 const Services = () => {
@@ -34,10 +90,17 @@ const Services = () => {
   }, []);
 
   return (
-    <section id="servizi" ref={sectionRef} className="py-20 md:py-24 bg-background">
-      <div className="container mx-auto">
+    <section id="servizi" ref={sectionRef} className="relative py-20 md:py-24 overflow-hidden">
+      {/* Dark background matching CTA/footer feel */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      <div className="absolute inset-0 bg-black/85" />
+
+      <div className="container mx-auto relative z-10">
         <p
-          className={`text-center text-foreground/70 text-lg md:text-xl font-medium mb-12 transition-all duration-700 ${
+          className={`text-center text-white/80 text-lg md:text-xl font-medium mb-12 transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -48,13 +111,13 @@ const Services = () => {
           {cards.map((card, i) => (
             <div
               key={card.title}
-              className={`bg-card rounded-xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 ${
+              className={`bg-card rounded-xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${(i + 1) * 120}ms` }}
             >
-              <div className="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
-                <card.icon className="w-7 h-7 text-primary" />
+              <div className="w-16 h-16 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-5">
+                <card.Icon />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">{card.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{card.text}</p>
@@ -63,7 +126,7 @@ const Services = () => {
 
           {/* Stats card */}
           <div
-            className={`bg-card rounded-xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-accent/20 hover:-translate-y-1.5 transition-all duration-500 ${
+            className={`bg-card rounded-xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-accent/20 hover:-translate-y-1.5 transition-all duration-500 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
             style={{ transitionDelay: "360ms" }}
@@ -71,8 +134,8 @@ const Services = () => {
             <div className="flex flex-col gap-6">
               {stats.map((stat) => (
                 <div key={stat.label} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <stat.icon className="w-6 h-6 text-accent" />
+                  <div className="w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
+                    <stat.Icon />
                   </div>
                   <div>
                     <span className="text-xl font-bold text-foreground">{stat.value}</span>{" "}
