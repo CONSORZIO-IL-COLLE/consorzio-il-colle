@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 
 const ContactSection = () => (
-  <section className="container mx-auto text-center py-16 relative z-10">
+  <section id="contatti" className="container mx-auto text-center py-16 relative z-10">
     <p className="text-text-light text-lg md:text-xl mb-4">
       Hai bisogno di un <strong className="text-white">sopralluogo</strong> o un <strong className="text-white">preventivo veloce</strong>?
     </p>

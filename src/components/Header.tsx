@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import logo from "@/assets/logo-ilcolle.png";
 import { Link } from "react-router-dom";
 
+const baseUrl = "https://consorzio-il-colle.github.io/consorzio-il-colle";
 const navItems = [
   { label: "Chi siamo", href: "/chi-siamo" },
-  { label: "Servizi", href: "#servizi" },
-  { label: "Realizzazioni", href: "#servizi" },
-  { label: "Contatti", href: "#contatti" },
+  { label: "Servizi", href: `${baseUrl}#servizi` },
+  { label: "Realizzazioni", href: `${baseUrl}#servizi` },
+  { label: "Contatti", href: `${baseUrl}#contatti` },
 ];
 
 const Header = () => {
