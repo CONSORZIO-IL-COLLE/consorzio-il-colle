@@ -1,8 +1,11 @@
+
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
+import bgDesktop from "@/assets/bg-desktop.png";
+import bgMobile from "@/assets/bg-mobile.png";
 
 const Index = () => (
   <>
@@ -13,12 +16,12 @@ const Index = () => (
       {/* Desktop background */}
       <div
         className="hidden md:block absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(/src/assets/bg-desktop.png)` }}
+        style={{ backgroundImage: `url(${bgDesktop})` }}
       />
       {/* Mobile background */}
       <div
         className="block md:hidden absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(/consorzio-il-colle/src/assets/bg-mobile.png)` }}
+        style={{ backgroundImage: `url(${bgMobile})` }}
       />
       <div className="absolute inset-0 bg-black/85" />
       <Services />
