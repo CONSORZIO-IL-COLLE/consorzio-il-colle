@@ -1,8 +1,10 @@
 import { Mail, Phone, MessageCircle } from "lucide-react";
 
+
 const Footer = () => (
-  <footer className="bg-[hsl(0,0%,7%)] text-white/70 py-12">
+  <footer className="bg-[hsl(0,0%,7%)] text-white/70 pt-8 pb-12 relative z-10">
     <div className="container mx-auto">
+
       <div className="grid md:grid-cols-2 gap-8">
         {/* Left */}
         <div className="space-y-2 text-sm">

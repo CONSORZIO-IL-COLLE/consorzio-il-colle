@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo-ilcolle.png";
+import { Link } from "react-router-dom";
 
 const navItems = [
-  { label: "Chi siamo", href: "#chi-siamo" },
+  { label: "Chi siamo", href: "/chi-siamo" },
   { label: "Servizi", href: "#servizi" },
   { label: "Realizzazioni", href: "#realizzazioni" },
   { label: "Contatti", href: "#contatti" },
@@ -17,7 +18,7 @@ const Header = () => {
     const onScroll = () => {
       setScrolled(window.scrollY > 60);
       // Show header logo once scrolled past the hero viewport
-      setShowLogo(window.scrollY > window.innerHeight * 0.85);
+      setShowLogo(window.scrollY > window.innerHeight * 0.3);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,26 +33,36 @@ const Header = () => {
     >
       <div className="container mx-auto h-full flex items-center justify-between">
         {/* Logo — fades in after scrolling past hero */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className={`flex-shrink-0 transition-all duration-500 ${
             showLogo ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4 pointer-events-none"
           }`}
         >
-          <img src={logo} alt="Il Colle Consorzio" className="h-[50px] w-auto" />
-        </a>
+          <img src={logo} alt="Il Colle Consorzio" className="h-[64px] w-auto" />
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-white/90 hover:text-white text-[15px] font-medium transition-colors duration-200"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            item.href.startsWith("/") ? (
+              <Link
+                key={item.href}
+                to={item.href}
+                className="text-white/90 hover:text-white text-[15px] font-medium transition-colors duration-200"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-white/90 hover:text-white text-[15px] font-medium transition-colors duration-200"
+              >
+                {item.label}
+              </a>
+            )
+          )}
           <a
             href="#contatti"
             className="bg-accent text-accent-foreground font-semibold text-sm px-5 py-3 rounded-lg hover:brightness-110 active:scale-[0.97] transition-all duration-200"

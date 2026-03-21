@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+import cardIcon from "../assets/card-icon.png";
+import cardIcon2 from "../assets/card-icon-2.png";
+import cardIcon3 from "../assets/card-icon-3.png";
 
 /* ── Inline SVG icons ── */
 const ConstructionIcon = () => (
@@ -59,14 +62,16 @@ const WrenchIcon = () => (
 
 const cards = [
   {
-    Icon: ConstructionIcon,
+    Icon: null, // Will use image
     title: "Costruzioni e ristrutturazioni",
     text: "Nuove costruzioni, ristrutturazioni complete, ampliamenti e interventi strutturali chiavi in mano.",
+    image: cardIcon,
   },
   {
-    Icon: PaintRollerIcon,
+    Icon: null, // Will use image
     title: "Restauro e finiture",
     text: "Tinteggiature, cappotti termici, cartongesso, restauri conservativi e finiture di pregio.",
+    image: cardIcon2,
   },
 ];
 
@@ -90,17 +95,10 @@ const Services = () => {
   }, []);
 
   return (
-    <section id="servizi" ref={sectionRef} className="relative py-20 md:py-24 overflow-hidden">
-      {/* Dark background matching CTA/footer feel */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
-      <div className="absolute inset-0 bg-black/85" />
-
-      <div className="container mx-auto relative z-10">
+    <section id="servizi" ref={sectionRef} className="relative pt-20 md:pt-24 pb-0">
+      <div className="container mx-auto relative z-10 pb-32 md:pb-40">
         <p
-          className={`text-center text-white/80 text-lg md:text-xl font-medium mb-12 transition-all duration-700 ${
+          className={`text-center text-white/90 text-xl md:text-2xl font-bold mb-20 transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -108,41 +106,60 @@ const Services = () => {
         </p>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {cards.map((card, i) => (
+          {/* Card 1 with icon above */}
+          <div className="relative flex flex-col items-center">
+            <div className="absolute left-1/2 -top-24 -translate-x-1/2 z-10">
+              <img src={cardIcon} alt="Card Icon" className="w-56 h-56 object-contain" />
+            </div>
             <div
-              key={card.title}
-              className={`bg-card rounded-xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 ${
+              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
-              style={{ transitionDelay: `${(i + 1) * 120}ms` }}
+              style={{ transitionDelay: `120ms` }}
             >
-              <div className="w-16 h-16 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-5">
-                <card.Icon />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">{card.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{card.text}</p>
+              <h3 className="text-xl font-semibold text-foreground mb-3">{cards[0].title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{cards[0].text}</p>
             </div>
-          ))}
-
-          {/* Stats card */}
-          <div
-            className={`bg-card rounded-xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-accent/20 hover:-translate-y-1.5 transition-all duration-500 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-            style={{ transitionDelay: "360ms" }}
-          >
-            <div className="flex flex-col gap-6">
-              {stats.map((stat) => (
-                <div key={stat.label} className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
-                    <stat.Icon />
+          </div>
+          {/* Card 2 with icon above */}
+          <div className="relative flex flex-col items-center">
+            <div className="absolute left-1/2 -top-16 -translate-x-1/2 z-10">
+              <img src={cardIcon2} alt="Card Icon" className="w-40 h-40 object-contain" />
+            </div>
+            <div
+              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `240ms` }}
+            >
+              <h3 className="text-xl font-semibold text-foreground mb-3">{cards[1].title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{cards[1].text}</p>
+            </div>
+          </div>
+          {/* Stats card with third icon above */}
+          <div className="relative flex flex-col items-center">
+            <div className="absolute left-1/2 -top-8 -translate-x-1/2 z-10">
+              <img src={cardIcon3} alt="Card Icon" className="w-32 h-32 object-contain" />
+            </div>
+            <div
+              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-accent/20 hover:-translate-y-1.5 transition-all duration-500 w-full ${
+                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `360ms` }}
+            >
+              <div className="flex flex-col gap-6 w-full">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
+                      <stat.Icon />
+                    </div>
+                    <div>
+                      <span className="text-xl font-bold text-foreground">{stat.value}</span>{" "}
+                      <span className="text-muted-foreground">{stat.label}</span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-xl font-bold text-foreground">{stat.value}</span>{" "}
-                    <span className="text-muted-foreground">{stat.label}</span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
