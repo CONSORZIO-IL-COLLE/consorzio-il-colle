@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "@/assets/logo-ilcolle.jpg";
+import logo from "@/assets/logo-ilcolle.png";
 
 const navItems = [
   { label: "Chi siamo", href: "#chi-siamo" },
@@ -10,10 +10,15 @@ const navItems = [
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
+      // Show header logo once scrolled past the hero viewport
+      setShowLogo(window.scrollY > window.innerHeight * 0.85);
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -26,8 +31,13 @@ const Header = () => {
       style={{ height: 80 }}
     >
       <div className="container mx-auto h-full flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex-shrink-0">
+        {/* Logo — fades in after scrolling past hero */}
+        <a
+          href="#"
+          className={`flex-shrink-0 transition-all duration-500 ${
+            showLogo ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4 pointer-events-none"
+          }`}
+        >
           <img src={logo} alt="Il Colle Consorzio" className="h-[50px] w-auto" />
         </a>
 
