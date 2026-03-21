@@ -43,7 +43,7 @@ const Header = () => {
             showLogo ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4 pointer-events-none"
           }`}
         >
-          <img src={logo} alt="Il Colle Consorzio" className="h-[64px] w-auto" />
+          <img src={logo} alt="Il Colle Consorzio" className="h-[84px] w-auto" />
         </Link>
 
         {/* Desktop nav */}
