@@ -12,7 +12,7 @@ const Index = () => (
       {/* Shared background for Services + Footer */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(/src/assets/hero-bg.jpg)` }}
+        style={{ backgroundImage: `url(/consorzio-il-colle/assets/hero-bg-BqsMgdu1.jpg)` }}
       />
       <div className="absolute inset-0 bg-black/85" />
       <Services />
