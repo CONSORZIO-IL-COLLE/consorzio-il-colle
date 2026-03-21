@@ -3,16 +3,16 @@ import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo-ilcolle.png";
 import { Link } from "react-router-dom";
 
-const baseUrl = "https://consorzio-il-colle.github.io/consorzio-il-colle";
+const baseUrl = "https://consorzio-il-colle.github.io";
 
 const Header = () => {
   const location = useLocation();
   const isLanding = location.pathname === "/";
   const navItems = [
-    { label: "Chi siamo", href: "/chi-siamo" },
-    { label: "Servizi", href: isLanding ? "#servizi" : `${baseUrl}#servizi` },
-    { label: "Realizzazioni", href: isLanding ? "#servizi" : `${baseUrl}#servizi` },
-    { label: "Contatti", href: isLanding ? "#contatti" : `${baseUrl}#contatti` },
+    { label: "Chi siamo", href: "/consorzio-il-colle/chi-siamo" },
+    { label: "Servizi", href: isLanding ? "#servizi" : `${baseUrl}/consorzio-il-colle#servizi` },
+    { label: "Realizzazioni", href: isLanding ? "#servizi" : `${baseUrl}/consorzio-il-colle#servizi` },
+    { label: "Contatti", href: isLanding ? "#contatti" : `${baseUrl}/consorzio-il-colle#contatti` },
   ];
   const [scrolled, setScrolled] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
