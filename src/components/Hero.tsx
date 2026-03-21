@@ -1,0 +1,52 @@
+import { useEffect, useRef } from "react";
+import heroBg from "@/assets/hero-bg.jpg";
+
+const Hero = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (el) el.style.opacity = "1";
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/45" />
+
+      {/* Content */}
+      <div className="container mx-auto relative z-10 pt-24 pb-16">
+        <div
+          ref={ref}
+          className="max-w-[620px] opacity-0 transition-all duration-1000 ease-out"
+          style={{ transitionDelay: "200ms" }}
+        >
+          <h1
+            className="text-white font-bold text-balance leading-[1.1]"
+            style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}
+          >
+            Il tuo <span className="text-accent">partner</span> per edilizia, restauro
+            e manutenzioni <span className="text-accent">complete</span>
+          </h1>
+          <p className="mt-6 text-text-light text-lg leading-relaxed max-w-[540px]">
+            Dal 2009 uniamo competenze artigiane e innovazione per offrire lavori{" "}
+            <strong className="text-white font-semibold">affidabili, rapidi e a regola d'arte.</strong>
+          </p>
+          <a
+            href="#servizi"
+            className="inline-block mt-8 bg-primary text-primary-foreground font-semibold text-base px-7 py-4 rounded-md hover:brightness-110 active:scale-[0.97] transition-all duration-200"
+          >
+            I NOSTRI SERVIZI
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
