@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://consorzio-il-colle.github.io/consorzio-il-colle",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
