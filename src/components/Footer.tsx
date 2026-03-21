@@ -30,23 +30,15 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* Floating buttons */}
+    {/* Floating phone button only */}
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-      <a
-        href="https://wa.me/393738881057"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform"
-        aria-label="WhatsApp"
-      >
-        <MessageCircle className="w-6 h-6 text-white" />
-      </a>
       <a
         href="tel:+393738881057"
         className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform"
         aria-label="Chiama"
       >
         <Phone className="w-6 h-6 text-white" />
+        <span className="sr-only">Chiama 373 8881057</span>
       </a>
     </div>
   </footer>
