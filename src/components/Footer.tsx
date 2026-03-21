@@ -15,11 +15,8 @@ const Footer = () => (
 
         {/* Right */}
         <div className="space-y-2 text-sm md:text-right">
-          <a href="mailto:icolle.tecnico@gmail.com" className="flex md:justify-end items-center gap-2 hover:text-white transition-colors">
-            <Mail className="w-4 h-4" /> icolle.tecnico@gmail.com
-          </a>
-          <a href="mailto:icolle.giacomazzi@gmail.com" className="flex md:justify-end items-center gap-2 hover:text-white transition-colors">
-            <Mail className="w-4 h-4" /> icolle.giacomazzi@gmail.com
+          <a href="mailto:commerciale@ilcolle.com" className="flex md:justify-end items-center gap-2 hover:text-white transition-colors">
+            <Mail className="w-4 h-4" /> commerciale@ilcolle.com
           </a>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import bgDesktop from "@/assets/bg-desktop.png";
+import bgMobile from "@/assets/bg-mobile.png";
 import logo from "@/assets/logo-ilcolle.png";
 
 const Hero = () => {
@@ -12,20 +13,34 @@ const Hero = () => {
 
   return (
     <section id="hero-section" className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background */}
+      {/* Background: desktop and mobile */}
+      {/* Desktop background */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        className="hidden md:block absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${bgDesktop})` }}
+      />
+      {/* Mobile background */}
+      <div
+        className="block md:hidden absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${bgMobile})` }}
       />
       {/* Gradient: transparent top → dark bottom */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80" />
 
-      {/* Big logo at top-left */}
+      {/* Big logo at top-left (desktop) */}
       <div className="container mx-auto relative z-10 pt-2">
         <img
           src={logo}
           alt="Il Colle Consorzio"
           className="hidden md:block w-[240px] lg:w-[300px] drop-shadow-2xl md:ml-16 lg:ml-32"
+        />
+      </div>
+      {/* Mobile logo larger and left-aligned */}
+      <div className="block md:hidden w-full flex justify-start relative z-10 pt-4 pl-4">
+        <img
+          src={logo}
+          alt="Il Colle Consorzio"
+          className="w-[260px] drop-shadow-2xl"
         />
       </div>
 
@@ -44,7 +59,7 @@ const Hero = () => {
             style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}
           >
             Il tuo <span className="text-accent">partner</span> per edilizia, restauro
-            e manutenzioni <span className="text-accent">complete</span>
+            e manutenzioni
           </h1>
           <p className="mt-6 text-text-light text-lg leading-relaxed max-w-[540px] mx-auto">
             Dal 2009 uniamo competenze artigiane e innovazione per offrire lavori{" "}
