@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const navItems = [
   { label: "Chi siamo", href: "/chi-siamo" },
   { label: "Servizi", href: "#servizi" },
-  { label: "Realizzazioni", href: "#realizzazioni" },
+  { label: "Realizzazioni", href: "#servizi" },
   { label: "Contatti", href: "#contatti" },
 ];
 
