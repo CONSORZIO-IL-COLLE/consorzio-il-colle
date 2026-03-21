@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo-ilcolle.png";
 import { Link } from "react-router-dom";
 
 const baseUrl = "https://consorzio-il-colle.github.io/consorzio-il-colle";
-const navItems = [
-  { label: "Chi siamo", href: "/chi-siamo" },
-  { label: "Servizi", href: `${baseUrl}#servizi` },
-  { label: "Realizzazioni", href: `${baseUrl}#servizi` },
-  { label: "Contatti", href: `${baseUrl}#contatti` },
-];
 
 const Header = () => {
+  const location = useLocation();
+  const isLanding = location.pathname === "/";
+  const navItems = [
+    { label: "Chi siamo", href: "/chi-siamo" },
+    { label: "Servizi", href: isLanding ? "#servizi" : `${baseUrl}#servizi` },
+    { label: "Realizzazioni", href: isLanding ? "#servizi" : `${baseUrl}#servizi` },
+    { label: "Contatti", href: isLanding ? "#contatti" : `${baseUrl}#contatti` },
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -65,7 +68,7 @@ const Header = () => {
             )
           )}
           <a
-            href="#contatti"
+            href={isLanding ? "#contatti" : `${baseUrl}#contatti`}
             className="bg-accent text-accent-foreground font-semibold text-sm px-5 py-3 rounded-lg hover:brightness-110 active:scale-[0.97] transition-all duration-200"
           >
             RICHIEDI PREVENTIVO
@@ -99,7 +102,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="#contatti"
+              href={isLanding ? "#contatti" : `${baseUrl}#contatti`}
               onClick={() => setMobileOpen(false)}
               className="bg-accent text-accent-foreground font-semibold text-sm px-5 py-3 rounded-lg text-center w-fit hover:brightness-110 transition-all"
             >
