@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
-import cardIcon from "../assets/card-icon.png";
-import cardIcon2 from "../assets/card-icon-2.png";
-import cardIcon3 from "../assets/card-icon-3.png";
+import asset1 from "../assets/asset-1.png";
+import asset2 from "../assets/asset-2.png";
+import asset3 from "../assets/asset-3.png";
 
 /* ── Inline SVG icons ── */
 const ConstructionIcon = () => (
@@ -64,20 +64,19 @@ const cards = [
   {
     Icon: null, // Will use image
     title: "Costruzioni e ristrutturazioni",
-    text: "Nuove costruzioni, ristrutturazioni complete, ampliamenti e interventi strutturali chiavi in mano.",
-    image: cardIcon,
+    text: "Nuove costruzioni, ristrutturazioni complete, ampliamenti e interventi strutturali chiavi in mano."
   },
   {
     Icon: null, // Will use image
     title: "Restauro e finiture",
-    text: "Tinteggiature, cappotti termici, cartongesso, restauri conservativi e finiture di pregio.",
-    image: cardIcon2,
+    text: "Tinteggiature, cappotti termici, cartongesso, restauri conservativi e finiture di pregio."
   },
 ];
 
 const stats = [
   { Icon: TrophyIcon, value: "+20", label: "anni di esperienza" },
   { Icon: TeamIcon, value: "15+", label: "imprese specializzate" },
+  { Icon: TeamIcon, value: "+40", label: "artigiani specializzati" },
   { Icon: WrenchIcon, value: "∞", label: "Team completo per ogni lavorazione" },
 ];
 
@@ -107,12 +106,12 @@ const Services = () => {
 
         <div className="grid md:grid-cols-3 gap-6">
           {/* Card 1 with icon above */}
-          <div className="relative flex flex-col items-center">
+          <div className="relative flex flex-col items-center h-full">
             <div className="absolute left-1/2 -top-24 -translate-x-1/2 z-10">
-              <img src={cardIcon} alt="Card Icon" className="w-56 h-56 object-contain" />
+              <img src={asset1} alt="Card Icon" className="w-56 h-56 object-contain max-w-xl" />
             </div>
             <div
-              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
+              className={`bg-card rounded-xl p-8 pt-32 min-h-[380px] h-full flex flex-col shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `120ms` }}
@@ -122,12 +121,12 @@ const Services = () => {
             </div>
           </div>
           {/* Card 2 with icon above */}
-          <div className="relative flex flex-col items-center">
-            <div className="absolute left-1/2 -top-16 -translate-x-1/2 z-10">
-              <img src={cardIcon2} alt="Card Icon" className="w-40 h-40 object-contain" />
+          <div className="relative flex flex-col items-center h-full">
+            <div className="absolute left-1/2 -top-24 -translate-x-1/2 z-10">
+              <img src={asset2} alt="Card Icon" className="w-56 h-56 object-contain max-w-xl" />
             </div>
             <div
-              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
+              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] h-full flex flex-col shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `240ms` }}
@@ -137,12 +136,12 @@ const Services = () => {
             </div>
           </div>
           {/* Stats card with third icon above */}
-          <div className="relative flex flex-col items-center">
-            <div className="absolute left-1/2 -top-8 -translate-x-1/2 z-10">
-              <img src={cardIcon3} alt="Card Icon" className="w-32 h-32 object-contain" />
+          <div className="relative flex flex-col items-center h-full">
+            <div className="absolute left-1/2 -top-20 -translate-x-1/2 z-10">
+              <img src={asset3} alt="Card Icon" className="w-52 h-52 object-contain max-w-xl" />
             </div>
             <div
-              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-accent/20 hover:-translate-y-1.5 transition-all duration-500 w-full ${
+              className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] h-full flex flex-col border border-accent/20 shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `360ms` }}

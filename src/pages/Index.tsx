@@ -10,9 +10,15 @@ const Index = () => (
     <Hero />
     <div className="relative overflow-hidden">
       {/* Shared background for Services + Footer */}
+      {/* Desktop background */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(/consorzio-il-colle/assets/hero-bg-BqsMgdu1.jpg)` }}
+        className="hidden md:block absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(/src/assets/bg-desktop.png)` }}
+      />
+      {/* Mobile background */}
+      <div
+        className="block md:hidden absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(/src/assets/bg-mobile.png)` }}
       />
       <div className="absolute inset-0 bg-black/85" />
       <Services />
