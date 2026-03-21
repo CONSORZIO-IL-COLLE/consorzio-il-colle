@@ -19,21 +19,21 @@ const Hero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/45" />
 
-      {/* Content */}
-      <div className="container mx-auto relative z-10 pt-24 pb-16">
+      {/* Content — centered */}
+      <div className="container mx-auto relative z-10 pt-24 pb-16 text-center">
         <div
           ref={ref}
-          className="max-w-[620px] opacity-0 transition-all duration-1000 ease-out"
+          className="max-w-[680px] mx-auto opacity-0 transition-all duration-1000 ease-out"
           style={{ transitionDelay: "200ms" }}
         >
           <h1
-            className="text-white font-bold text-balance leading-[1.1]"
+            className="text-white font-bold text-balance leading-[1.15]"
             style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}
           >
             Il tuo <span className="text-accent">partner</span> per edilizia, restauro
             e manutenzioni <span className="text-accent">complete</span>
           </h1>
-          <p className="mt-6 text-text-light text-lg leading-relaxed max-w-[540px]">
+          <p className="mt-6 text-text-light text-lg leading-relaxed max-w-[540px] mx-auto">
             Dal 2009 uniamo competenze artigiane e innovazione per offrire lavori{" "}
             <strong className="text-white font-semibold">affidabili, rapidi e a regola d'arte.</strong>
           </p>
