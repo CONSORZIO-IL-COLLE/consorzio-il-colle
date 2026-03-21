@@ -21,11 +21,11 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80" />
 
       {/* Big logo at top-left */}
-      <div className="container mx-auto relative z-10 pt-28">
+      <div className="container mx-auto relative z-10 pt-2">
         <img
           src={logo}
           alt="Il Colle Consorzio"
-          className="hidden md:block w-[200px] lg:w-[240px] drop-shadow-2xl"
+          className="hidden md:block w-[240px] lg:w-[300px] drop-shadow-2xl md:ml-16 lg:ml-32"
         />
       </div>
 
