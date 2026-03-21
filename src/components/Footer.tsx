@@ -25,7 +25,8 @@ const Footer = () => (
       </div>
 
       <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-white/40">
-        © {new Date().getFullYear()} Il Colle Consorzio. Tutti i diritti riservati.
+        © {new Date().getFullYear()} Il Colle Consorzio. Tutti i diritti riservati.<br />
+        <span className="text-white/60">Sviluppato da <a href="https://europeanmanagement.eu/chi-siamo#:~:text=Sviluppato%20da%20Sintija%20Birgele" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Sintija Birgele</a></span>
       </div>
     </div>
 
