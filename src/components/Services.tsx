@@ -109,7 +109,7 @@ const Services = () => {
           <div className="relative flex flex-col items-center h-full">
             <div className="absolute left-1/2 -top-24 -translate-x-1/2 z-10">
               <img
-                src={asset1}
+                src={asset2}
                 alt="Card Icon"
                 className={`w-56 h-56 object-contain max-w-xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `320ms` }}
@@ -129,7 +129,7 @@ const Services = () => {
           <div className="relative flex flex-col items-center h-full">
             <div className="absolute left-1/2 -top-24 -translate-x-1/2 z-10">
               <img
-                src={asset2}
+                src={asset1}
                 alt="Card Icon"
                 className={`w-56 h-56 object-contain max-w-xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
                 style={{ transitionDelay: `440ms` }}
@@ -147,13 +147,15 @@ const Services = () => {
           </div>
           {/* Stats card with third icon above */}
           <div className="relative flex flex-col items-center h-full">
-            <div className="absolute left-1/2 -top-20 -translate-x-1/2 z-10">
-              <img
-                src={asset3}
-                alt="Card Icon"
-                className={`w-52 h-52 object-contain max-w-xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: `560ms` }}
-              />
+            <div className="absolute left-1/2 -top-28 -translate-x-1/2 z-10">
+              <a href="https://www.elnostroleon.it" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={asset3}
+                  alt="Card Icon"
+                  className={`w-64 h-64 object-contain max-w-xl transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                  style={{ transitionDelay: `560ms` }}
+                />
+              </a>
             </div>
             <div
               className={`bg-card rounded-xl p-8 pt-32 min-h-[360px] h-full flex flex-col border border-accent/20 shadow-[0_10px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1.5 transition-all duration-500 w-full ${
