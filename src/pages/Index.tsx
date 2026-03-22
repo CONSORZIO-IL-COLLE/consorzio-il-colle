@@ -23,7 +23,7 @@ const Index = () => (
         className="block md:hidden absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${bgMobile})` }}
       />
-      <div className="absolute inset-0 bg-black/85" />
+      <div className="absolute inset-0 bg-black/50" />
       <Services />
       <ContactSection />
       <Footer />
