@@ -97,7 +97,7 @@ const Services = () => {
     <section id="servizi" ref={sectionRef} className="relative pt-20 md:pt-24 pb-0">
       <div className="container mx-auto relative z-10 pb-10">
         <p
-          className={`text-center text-white/90 text-xl md:text-2xl font-bold mb-20 transition-all duration-700 ${
+          className={`text-center text-white/90 text-xl md:text-2xl font-bold mb-32 transition-all duration-700 ${
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
