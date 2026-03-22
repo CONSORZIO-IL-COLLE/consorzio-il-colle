@@ -28,7 +28,7 @@ const Hero = () => {
 
 
       {/* Centered logo for both desktop and mobile */}
-      <div className="w-full flex justify-center items-center relative z-10 pt-8">
+      <div className="w-full flex justify-center items-center relative z-10 pt-4 md:pt-8">
         <img
           src={logo}
           alt="Il Colle Consorzio"
