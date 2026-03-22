@@ -18,15 +18,22 @@ const Header = () => {
   const [showLogo, setShowLogo] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 60);
-      // Show header logo once scrolled past the hero viewport
-      setShowLogo(window.scrollY > window.innerHeight * 0.3);
+      // Show header logo once scrolled past the hero viewport (only on landing)
+      if (isLanding) {
+        setShowLogo(window.scrollY > window.innerHeight * 0.3);
+      } else {
+        setShowLogo(true); // Always show logo on non-landing pages (e.g., Chi Siamo)
+      }
     };
     window.addEventListener("scroll", onScroll);
+    // On mount, for non-landing, show logo immediately
+    if (!isLanding) setShowLogo(true);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isLanding]);
 
   return (
     <header
@@ -36,7 +43,7 @@ const Header = () => {
       style={{ height: 80 }}
     >
       <div className="container mx-auto h-full flex items-center justify-between">
-        {/* Logo — fades in after scrolling past hero */}
+        {/* Logo — always visible on mobile for non-landing pages, fades in on landing */}
         <Link
           to="/"
           className={`flex-shrink-0 transition-all duration-500 ${
@@ -53,7 +60,7 @@ const Header = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-white/90 hover:text-white text-[15px] font-medium transition-colors duration-200"
+                className={`${scrolled ? "text-white/90 hover:text-white" : "text-neutral-900 hover:text-neutral-700"} text-[15px] font-medium transition-colors duration-200`}
               >
                 {item.label}
               </Link>
@@ -61,7 +68,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-white/90 hover:text-white text-[15px] font-medium transition-colors duration-200"
+                className={`${scrolled ? "text-white/90 hover:text-white" : "text-neutral-900 hover:text-neutral-700"} text-[15px] font-medium transition-colors duration-200`}
               >
                 {item.label}
               </a>
@@ -75,15 +82,15 @@ const Header = () => {
           </a>
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger — always visible on mobile for non-landing pages, as before */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Menu"
         >
-          <span className={`w-6 h-0.5 bg-white transition-transform duration-200 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`w-6 h-0.5 bg-white transition-opacity duration-200 ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`w-6 h-0.5 bg-white transition-transform duration-200 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span className={`w-6 h-0.5 transition-transform duration-200 ${scrolled ? "bg-white" : "bg-neutral-900"} ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`w-6 h-0.5 transition-opacity duration-200 ${scrolled ? "bg-white" : "bg-neutral-900"} ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`w-6 h-0.5 transition-transform duration-200 ${scrolled ? "bg-white" : "bg-neutral-900"} ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </div>
 

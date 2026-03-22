@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import bgDesktop from "@/assets/bg-desktop.avif";
-import bgMobile from "@/assets/bg-mobile.png";
+import bgMobile from "@/assets/bg-mobile.avif";
 import logo from "@/assets/logo-ilcolle.png";
 
 const Hero = () => {
@@ -26,20 +26,13 @@ const Hero = () => {
       />
       {/* Gradient removed as requested */}
 
-      {/* Big logo at top-left (desktop) */}
-      <div className="container mx-auto relative z-10 pt-2">
+
+      {/* Centered logo for both desktop and mobile */}
+      <div className="w-full flex justify-center items-center relative z-10 pt-8">
         <img
           src={logo}
           alt="Il Colle Consorzio"
-          className="hidden md:block w-[240px] lg:w-[300px] drop-shadow-2xl md:ml-16 lg:ml-32"
-        />
-      </div>
-      {/* Mobile logo larger and left-aligned */}
-      <div className="block md:hidden w-full flex justify-start relative z-10 pt-4 pl-4">
-        <img
-          src={logo}
-          alt="Il Colle Consorzio"
-          className="w-[260px] drop-shadow-2xl"
+          className="w-[300px] md:w-[380px] lg:w-[460px] drop-shadow-2xl"
         />
       </div>
 
@@ -57,7 +50,7 @@ const Hero = () => {
             className="text-white font-bold text-balance leading-[1.15]"
             style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}
           >
-            Il tuo <span className="text-accent">partner</span> per edilizia, restauro
+            Il tuo <span className="text-white">partner</span> per edilizia, restauro
             e manutenzioni
           </h1>
           <p className="mt-6 text-text-light text-lg leading-relaxed max-w-[540px] mx-auto">
