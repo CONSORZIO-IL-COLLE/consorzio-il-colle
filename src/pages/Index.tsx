@@ -4,8 +4,8 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import bgDesktop from "@/assets/bg-desktop.png";
-import bgMobile from "@/assets/bg-mobile.png";
+import bgDesktop from "@/assets/bg-desktop.avif";
+import bgMobile from "@/assets/bg-mobile.avif";
 
 const Index = () => (
   <>

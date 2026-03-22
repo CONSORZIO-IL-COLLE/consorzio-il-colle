@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import bgDesktop from "@/assets/bg-desktop.png";
-import bgMobile from "@/assets/bg-mobile.png";
+import bgDesktop from "@/assets/bg-desktop.avif";
+import bgMobile from "@/assets/bg-mobile.avif";
 import logo from "@/assets/logo-ilcolle.png";
 
 const Hero = () => {
