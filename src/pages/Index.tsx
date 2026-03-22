@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import bgDesktop from "@/assets/bg-desktop.avif";
-import bgMobile from "@/assets/bg-mobile.avif";
+import bgMobile from "@/assets/bg-mobile.png";
 
 const Index = () => (
   <>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import bgDesktop from "@/assets/bg-desktop.avif";
-import bgMobile from "@/assets/bg-mobile.avif";
+import bgMobile from "@/assets/bg-mobile.png";
 import logo from "@/assets/logo-ilcolle.png";
 
 const Hero = () => {
@@ -24,8 +24,7 @@ const Hero = () => {
         className="block md:hidden absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${bgMobile})` }}
       />
-      {/* Gradient: transparent top → dark bottom */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80" />
+      {/* Gradient removed as requested */}
 
       {/* Big logo at top-left (desktop) */}
       <div className="container mx-auto relative z-10 pt-2">
