@@ -15,7 +15,7 @@ const Hero = () => {
       {/* Background: desktop and mobile */}
       {/* Desktop background */}
       <div
-        className="hidden md:block absolute inset-0 bg-cover bg-center"
+        className="hidden md:block absolute inset-0 bg-cover bg-top mt-[-60px]"
         style={{ backgroundImage: `url(${bgDesktop})` }}
       />
       {/* Mobile background */}
