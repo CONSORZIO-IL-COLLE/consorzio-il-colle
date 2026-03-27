@@ -36,7 +36,7 @@ const Hero = () => {
         >
           <h1
             className="text-white font-bold text-balance leading-[1.15]"
-            style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}
+            style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
           >
             Il tuo <span className="text-white">partner</span> per edilizia, restauro
             e manutenzioni
