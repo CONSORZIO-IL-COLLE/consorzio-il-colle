@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
-import bgDesktop from "@/assets/bg-desktop.avif";
+import bgDesktop from "@/assets/bg-desktop.png";
 import bgMobile from "@/assets/bg-mobile.png";
-import logo from "@/assets/logo-ilcolle.png";
 
 const Hero = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,17 +23,6 @@ const Hero = () => {
         className="block md:hidden absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${bgMobile})` }}
       />
-      {/* Gradient removed as requested */}
-
-
-      {/* Centered logo for both desktop and mobile */}
-      <div className="hidden md:block w-full flex justify-center items-center relative z-10 pt-4 md:pt-8">
-        <img
-          src={logo}
-          alt="Il Colle Consorzio"
-          className="w-[300px] md:w-[380px] lg:w-[460px] drop-shadow-2xl"
-        />
-      </div>
 
       {/* Spacer pushes text to bottom */}
       <div className="flex-1" />
